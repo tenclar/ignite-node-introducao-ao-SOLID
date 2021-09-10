@@ -11,7 +11,7 @@ class CreateUserController {
       const user = this.createUserUseCase.execute({ name, email });
       return response.status(201).json(user);
     } catch (error) {
-      return response.status(404).json({ err: " Email alredy Exists" });
+      return response.status(400).json({ error: error.message });
     }
   }
 }
