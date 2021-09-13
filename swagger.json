@@ -1,0 +1,88 @@
+{
+  "openapi": "1.0.0",
+  "info": {
+    "ttitle": "Atlas",
+    "description": "esta é uma documentação sobre a Atlas API",
+    "contact": {
+      "email":"tenclarvalus@gmail.com"
+    },
+    "paths": {
+      "/users":{
+        "post": {
+          "tags":["Users"],
+          "summary": "Gerenciamento de Usuários",
+          "description": "Cria novo Usuário",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type":"string",
+                      "required": true
+                    },
+                    "email": {
+                      "type": "string",
+                      "required": true
+                    }
+                  }
+                },
+                "example": {
+                  "name": "Rocketseat",
+                  "email": "oi@rocketseat.com.br"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Operação realizada com sucesso",
+            "requestBody": {
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "admin": {
+                        "type":"boolean"
+                      },
+                      "id": {
+                        "type":"string"
+                      },
+                      "name": {
+                        "type":"string"
+                      },
+                      "email": {
+                        "type": "string"
+                      },
+                      "created_at": {
+                        "type": "date"
+                      },
+                      "updated_at": {
+                        "type": "date"
+                      }
+                    }
+                  },
+                  "example": {
+                    "admin": "false",
+                    "id": "a32454-66ecd-34434-a2c2-a454gg84526",
+                    "name": "Rocketseat",
+                    "email": "oi@rocketseat.com.br",
+                    "created_at": "2021-08-11T10:10.8898Z",
+                    "updated_at": "2021-08-11T10:10.8898Z"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "User Already exists"
+          }
+
+        }
+      }
+    }
+  }
+}
